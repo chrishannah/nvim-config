@@ -81,6 +81,10 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " this is for
 
 let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-java']  " list of CoC extensions needed
 
+Plug 'itchyny/lightline.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 
 " these two plugins will add highlighting and indenting to JSX and TSX files.
@@ -264,3 +268,13 @@ noremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " set theme
 colorscheme tokyonight-night
+
+" treesitter config
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "lua", "vim", "vimdoc", "query", "swift", "javascript", "python", "go" },
+    auto_install = true,
+    highlight = {
+        enable = true,
+    },
+}
