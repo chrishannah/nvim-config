@@ -83,9 +83,11 @@ let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', '
 
 Plug 'itchyny/lightline.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
-Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
+Plug 'jiangmiao/auto-pairs'
+
+" lsp
+Plug 'neovim/nvim-lspconfig'
 
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
@@ -99,9 +101,6 @@ Plug 'BurntSushi/ripgrep'
 
 " theme
 Plug 'folke/tokyonight.nvim'
-
-" tetris
-Plug 'alec-gibson/nvim-tetris'
 
 call plug#end()
 
@@ -278,3 +277,25 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
     },
 }
+EOF
+
+" lsp
+lua << EOF
+local swift_lsp = vim.api.nvim_create_augroup("swift_lsp", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "swift" },
+	callback = function()
+		local root_dir = vim.fs.dirname(vim.fs.find({
+			"Package.swift",
+			".git",
+		}, { upward = true })[1])
+		local client = vim.lsp.start({
+			name = "sourcekit-lsp",
+			cmd = { "sourcekit-lsp" },
+			root_dir = root_dir,
+		})
+		vim.lsp.buf_attach_client(0, client)
+	end,
+	group = swift_lsp,
+})
+EOF
