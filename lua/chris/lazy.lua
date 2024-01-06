@@ -19,8 +19,8 @@ require("lazy").setup({
 
     {
         "folke/tokyonight.nvim",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
+        lazy = false,
+        priority = 1000,
         config = function()
             -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight-night]])
@@ -38,5 +38,14 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp",
 
+    -- completiom
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
+
     "itchyny/lightline.vim",
 })
+
+

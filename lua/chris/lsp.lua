@@ -8,8 +8,8 @@ require("mason").setup({
     }
 })
 require("mason-lspconfig").setup({
-    ensure_installed = { 
-        "lua_ls", 
+    ensure_installed = {
+        "lua_ls",
         "marksman",
         "gopls",
         "html",
@@ -23,23 +23,46 @@ require("mason-lspconfig").setup({
 })
 
 -- setup individual lsps
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lsp = require("lspconfig")
 -- lua
-require("lspconfig").lua_ls.setup {}
+lsp.lua_ls.setup {
+    capabilities = capabilities,
+}
+
 -- markdown
-require("lspconfig").marksman.setup {}
+lsp.marksman.setup {
+    capabilities = capabilities,
+}
 -- go
-require("lspconfig").gopls.setup {}
+lsp.gopls.setup {
+    capabilities = capabilities,
+}
 -- html
-require("lspconfig").html.setup {}
+lsp.html.setup {
+    capabilities = capabilities,
+}
 -- json
-require("lspconfig").jsonls.setup {}
+lsp.jsonls.setup {
+    capabilities = capabilities,
+}
 -- java
-require("lspconfig").jdtls.setup {}
+lsp.jdtls.setup {
+    capabilities = capabilities,
+}
 -- typescript
-require("lspconfig").tsserver.setup {}
+lsp.tsserver.setup {
+    capabilities = capabilities,
+}
 -- python
-require("lspconfig").pyright.setup {}
+lsp.pyright.setup {
+    capabilities = capabilities,
+}
 -- css
-require("lspconfig").cssls.setup {}
+lsp.cssls.setup {
+    capabilities = capabilities,
+}
 -- swift
-require("lspconfig").swift_mesonls.setup {}
+lsp.swift_mesonls.setup {
+    capabilities = capabilities,
+}

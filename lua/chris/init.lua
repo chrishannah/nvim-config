@@ -1,4 +1,5 @@
 require("chris.set")
 require("chris.remap")
 require("chris.lazy")
+require("chris.cmp")
 require("chris.lsp")
