@@ -28,6 +28,13 @@ local lsp = require("lspconfig")
 -- lua
 lsp.lua_ls.setup {
     capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+        }
+    }
 }
 
 -- markdown
