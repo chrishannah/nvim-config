@@ -47,6 +47,14 @@ require("lazy").setup({
     "hrsh7th/vim-vsnip",
 
     "itchyny/lightline.vim",
+
+    -- blog stuff
+    {
+        "chrishannah/blogutils.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        }
+    }
 })
 
 

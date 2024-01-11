@@ -30,4 +30,4 @@ vim.opt.showmode = true
 vim.opt.showcmd = true
 
 vim.opt.wrap = true
-vim.opt.textwidth = 140
+vim.opt.textwidth = 80
