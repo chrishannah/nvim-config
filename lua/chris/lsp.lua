@@ -73,3 +73,15 @@ lsp.cssls.setup {
 lsp.swift_mesonls.setup {
     capabilities = capabilities,
 }
+-- rust
+lsp.rust_analyzer.setup({
+  capabilities = capabilities,
+  filetypes = {"rust"},
+  settings = {
+    ['rust_analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
+})
