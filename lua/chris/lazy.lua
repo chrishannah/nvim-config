@@ -48,6 +48,9 @@ require("lazy").setup({
 
     "itchyny/lightline.vim",
 
+    -- file tree
+    "nvim-tree/nvim-tree.lua",
+
     -- blog stuff
     {
         "chrishannah/blogutils.nvim",

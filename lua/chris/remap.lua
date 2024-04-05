@@ -4,6 +4,7 @@ vim.keymap.set("n", "<leader>bf", function()
     require("blogutils").generateFrontMatter()
 end)
 
+vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<cr>")
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
