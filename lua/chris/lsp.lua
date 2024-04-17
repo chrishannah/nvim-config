@@ -56,6 +56,7 @@ lsp.jsonls.setup {
 -- java
 lsp.jdtls.setup {
     capabilities = capabilities,
+    root_dir = vim.fn.getcwd
 }
 -- typescript
 lsp.tsserver.setup {

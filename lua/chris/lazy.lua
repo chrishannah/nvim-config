@@ -38,6 +38,9 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp",
 
+    -- file tree
+    "nvim-tree/nvim-tree.lua",
+
     -- completiom
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
